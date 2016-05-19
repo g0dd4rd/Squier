@@ -70,28 +70,28 @@ var level00 = [
 
 var level01 = [
 // tone C#
-  {x: 600, y: 315,
-  width: 15, height: 5,
+  {x: 600, y: 345,
+  width: 10, height: 55,
   state: 'alive', counter: 0},
 
 // tone D#
-  {x: 615, y: 285,
-  width: 15, height: 5,
+  {x: 610, y: 315,
+  width: 15, height: 85,
   state: 'alive', counter: 0},
 
 // tone F#
-  {x: 630, y: 225,
-  width: 15, height: 5,
+  {x: 620, y: 255,
+  width: 15, height: 145,
   state: 'alive', counter: 0},
 
 // tone G#
-  {x: 645, y: 195,
-  width: 15, height: 5,
+  {x: 630, y: 225,
+  width: 15, height: 375,
   state: 'alive', counter: 0},
 
 // tone A#
-  {x: 660, y: 165,
-  width: 15, height: 5,
+  {x: 640, y: 195,
+  width: 15, height: 205,
   state: 'alive', counter: 0},
 ];
 
