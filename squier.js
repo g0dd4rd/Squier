@@ -305,7 +305,7 @@ function checkCollisions() {
     enemy = semitones[i];
     if(collided(enemy, player)) {
       player.state = 'hit';
-      player.counter += 10;
+      player.counter -= 1;
     }
   }
 }
