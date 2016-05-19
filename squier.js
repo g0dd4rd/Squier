@@ -20,7 +20,7 @@ var player = {
   y: 350,
   width: 15,
   height: 15,
-  counter: 1000,
+  counter: 100,
 };
 
 var keyboard = {};
@@ -151,7 +151,7 @@ function updateGame() {
 }
 
 function updatePlayer() {
-  if(player.state == 'dead') return;
+  if(player.state == 'dead' || player.counter <= 0) return;
 
   // key a
   if(keyboard[65]) {
@@ -251,17 +251,6 @@ function updatePlayer() {
     tones.play('D', 5);
   }
  
-  if(player.state == 'hit') {
-
-    if(player.counter == 0) {
-      player.state = 'dead';
-      game.state = 'over';
-      overlay.title = 'DROPPED THE BEAT';
-      overlay.subtitle = 'press space to play again';
-      overlay.counter = 0;
-    }
-  }
-
   if(player.y < 350) {
     player.y++;
   }
@@ -285,7 +274,7 @@ function updateEnemies() {
     enemy = semitones[i];
     if(!enemy) continue;
     if(enemy && enemy.state == 'alive') {
-      enemy.counter++;
+      //enemy.counter++;
       enemy.x--;
     }
   }
@@ -306,6 +295,12 @@ function checkCollisions() {
     if(collided(enemy, player)) {
       player.state = 'hit';
       player.counter -= 1;
+      if(player.counter <= 0) {
+        player.state = 'dead';
+        game.state = 'over';
+        overlay.title = 'DROPPED THE BEAT';
+        overlay.subtitle = 'press space to play again';
+      }
     }
   }
 }
