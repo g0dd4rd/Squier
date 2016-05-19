@@ -7,7 +7,7 @@
 <body>
 <h1>Squier</h1>
 <p>Use w, e, t, y, u and a, s, d, f, g, h, j, k, l and space bar. Your ears will guide you.</p>
-<canvas id="canvas" width="600" height="400"></canvas>
+<canvas id='canvas' width='600' height='400'></canvas>
 <script src='squier.js'></script>
 <p align='left' onclick='editModeClicks++; toggleEditMode()'><input type='button' value='Edit'/></p>
 <script language="JavaScript">
@@ -32,15 +32,15 @@ function mainLoop() {
 
 // =========== player ============
 function drawPlayer(c) {
-  if(player.state == "dead") return;
+  if(player.state == 'dead') return;
     
-  if(player.state == "hit") {
-    c.fillStyle = "white";
+  if(player.state == 'hit') {
+    c.fillStyle = 'white';
     c.fillRect(player.x, player.y, player.width, player.height);
     return;
   }
 
-  c.fillStyle = "brown";
+  c.fillStyle = 'brown';
   c.fillRect(player.x, player.y, player.width, player.height);
 }
 
@@ -55,8 +55,8 @@ function drawEnemies(c) {
   var enemy;
   for(var i in semitones) {
     enemy = semitones[i];
-    if(enemy.state == "alive") {
-      c.fillStyle = "grey";
+    if(enemy.state == 'alive') {
+      c.fillStyle = 'grey';
       c.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
     }
   }
@@ -65,22 +65,22 @@ function drawEnemies(c) {
 // =========== overlay ===============
 function drawOverlay(c) {
   c.fillStyle = 'white';
-  c.font = "14pt Arial";
+  c.font = '14pt Arial';
   c.fillText(player.counter, 10, 20);
 
   if(game.state == 'editing') {
     c.fillText(overlay.subtitle, 190, 250);
   }
 
-  if(game.state == "over") {
+  if(game.state == 'over') {
     c.fillText(overlay.subtitle, 190, 250);
     c.font = "Bold 40pt Arial";
     c.fillText(overlay.title, 30, 200);
   }
   
-  if(game.state == "won") {
+  if(game.state == 'won') {
     c.fillText(overlay.subtitle, 190, 250);
-    c.font = "Bold 40pt Arial";
+    c.font = 'Bold 40pt Arial';
     c.fillText(overlay.title, 50, 200);
   }
 }
