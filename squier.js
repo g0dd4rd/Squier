@@ -19,7 +19,7 @@ var player = {
   x: 100,
   y: 350,
   width: 15,
-  height: 50,
+  height: 15,
   counter: 1000,
 };
 
@@ -28,43 +28,43 @@ var semitones = [];
 
 var level00 = [
 // tone C
-  {x: 600, y: 330,
-  width: 15, height: 5,
+  {x: 600, y: 360,
+  width: 10, height: 40,
   state: 'alive', counter: 0},
 
 // tone D
-  {x: 615, y: 300,
-  width: 15, height: 5,
+  {x: 610, y: 330,
+  width: 10, height: 70,
   state: 'alive', counter: 0},
 
 // tone E
-  {x: 630, y: 270,
-  width: 15, height: 5,
+  {x: 620, y: 300,
+  width: 10, height: 100,
   state: 'alive', counter: 0},
 
 // tone F
-  {x: 645, y: 240,
-  width: 15, height: 5,
+  {x: 630, y: 270,
+  width: 10, height: 130,
   state: 'alive', counter: 0},
 
 // tone G
-  {x: 660, y: 210,
-  width: 15, height: 5,
+  {x: 640, y: 240,
+  width: 10, height: 160,
   state: 'alive', counter: 0},
 
 // tone A
-  {x: 675, y: 180,
-  width: 15, height: 5,
+  {x: 650, y: 210,
+  width: 10, height: 190,
   state: 'alive', counter: 0},
 
 // tone B
-  {x: 690, y: 150,
-  width: 15, height: 5,
+  {x: 660, y: 180,
+  width: 10, height: 220,
   state: 'alive', counter: 0},
 
 // tone C
-  {x: 705, y: 120,
-  width: 15, height: 5,
+  {x: 670, y: 150,
+  width: 10, height: 250,
   state: 'alive', counter: 0},
 ];
 
