@@ -5,4 +5,7 @@ TODO:
 - create game editor 
 - let people create levels and share them with others
 - let people rate their levels
+- add left/right movement
+- goal of the game is to remain human
+
 
