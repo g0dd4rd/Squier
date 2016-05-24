@@ -56,7 +56,12 @@ function drawEnemies(c) {
   for(var i in semitones) {
     enemy = semitones[i];
     if(enemy.state == 'alive') {
-      c.fillStyle = 'grey';
+      if(enemy.counter == -1) {
+        c.fillStyle = 'white';
+      } else {
+        c.fillStyle = 'grey';
+      }
+
       c.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
     }
   }
