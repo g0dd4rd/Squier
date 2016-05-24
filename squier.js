@@ -99,7 +99,7 @@ var testlevel = [
   // tone C
   {x: 600, y: 360,
   width: 100, height: 40,
-  state: 'alive', counter: 0},
+  state: 'alive', counter: -1},
 ];
 
 function initLevel(level) {
@@ -115,8 +115,7 @@ function initLevel(level) {
   }
 }
 
-var levels = [testlevel];
-//var levels = [level00, level01];
+var levels = [testlevel, level00, level01];
 var levelIterator = 0;
 
 // =========== Game ============
@@ -312,8 +311,12 @@ function checkCollisions() {
     enemy = semitones[i];
     if(collided(enemy, player)) {
       player.state = 'hit';
-      player.y = enemy.y - player.height;
-      //player.counter -= 1;
+      if(enemy.counter == -1) {
+        player.y = enemy.y - player.height;
+      } else {
+        player.counter -= 1;
+      }
+
       if(player.counter <= 0) {
         player.state = 'dead';
         game.state = 'over';
