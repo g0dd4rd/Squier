@@ -159,7 +159,16 @@ var levelIterator = 0;
 function updateGame() {
   if(game.state == 'playing' && semitones.length == 0) {
     game.state = 'won';
-    overlay.title = 'OFF THE SCALE!';
+    if(player.counter >= 100 / 1.33) {
+      overlay.title = 'WELL PLAYED!';
+    } else if(player.counter < 100 / 1.33 && player.counter >= 100 / 2) {
+      overlay.title = 'HEY, TONES!';
+    } else if(player.counter < 100 / 2 && player.counter >= 100 / 4) {
+      overlay.title = 'MEH, SOUNDS';
+    } else {
+      overlay.title = 'MEH';
+    }
+
     overlay.subtitle = 'press space to play next level';
     overlay.counter = 0;
   }
