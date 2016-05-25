@@ -76,22 +76,59 @@ var level01 = [
 
 // tone D#
   {x: 610, y: 315,
-  width: 15, height: 85,
+  width: 10, height: 85,
   state: 'alive', counter: 0},
 
 // tone F#
   {x: 620, y: 255,
-  width: 15, height: 145,
+  width: 10, height: 145,
   state: 'alive', counter: 0},
 
 // tone G#
   {x: 630, y: 225,
-  width: 15, height: 375,
+  width: 10, height: 375,
   state: 'alive', counter: 0},
 
 // tone A#
   {x: 640, y: 195,
-  width: 15, height: 205,
+  width: 10, height: 205,
+  state: 'alive', counter: 0},
+];
+
+var level02 = [
+// tone A
+  {x: 600, y: 210,
+  width: 15, height: 190,
+  state: 'alive', counter: 0},
+
+// tone B
+  {x: 615, y: 180,
+  width: 15, height: 220,
+  state: 'alive', counter: 0},
+
+// tone C
+  {x: 630, y: 150,
+  width: 15, height: 150,
+  state: 'alive', counter: 0},
+
+// tone D
+  {x: 690, y: 330,
+  width: 15, height: 70,
+  state: 'alive', counter: 0},
+
+// tone E
+  {x: 705, y: 300,
+  width: 15, height: 100,
+  state: 'alive', counter: 0},
+
+// tone F
+  {x: 720, y: 270,
+  width: 15, height: 130,
+  state: 'alive', counter: 0},
+
+// tone G
+  {x: 735, y: 240,
+  width: 15, height: 160,
   state: 'alive', counter: 0},
 ];
 
@@ -115,7 +152,7 @@ function initLevel(level) {
   }
 }
 
-var levels = [testlevel, level00, level01];
+var levels = [level00, level01, level02];
 var levelIterator = 0;
 
 // =========== Game ============
