@@ -15,18 +15,18 @@ var can = document.getElementById('canvas');
 var c = can.getContext('2d');
 
 function mainLoop() {
-	//var c = can.getContext('2d');
-	updateGame();
-	updateBackground();
-	updateEnemies();
-	updatePlayer();
-	
-	checkCollisions();
-	
-	drawBackground(c);
-	drawEnemies(c);
-	drawPlayer(c);
-	drawOverlay(c);
+  //var c = can.getContext('2d');
+  updateGame();
+  updateBackground();
+  updateEnemies();
+  updatePlayer();
+
+  checkCollisions();
+
+  drawBackground(c);
+  drawEnemies(c);
+  drawPlayer(c);
+  drawOverlay(c);
 }
 
 
