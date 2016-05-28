@@ -183,6 +183,7 @@ function updateGame() {
     background.color = 'black';
     player.y = 350;
     player.state = 'alive';
+    player.counter = 100;
     overlay.counter = -1;
   }
 
@@ -203,11 +204,12 @@ function updateGame() {
   }  
 }
 
+var language = (navigator.language || navigator.browserLanguage).split('-')[0];
 function updatePlayer() {
   if(player.state == 'dead' || player.counter <= 0) return;
-
+      
   // key a
-  if(keyboard[65]) {
+  if(keyboard[65] || keyboard[81]) {
     player.y = 330;
     background.color = 'red';
     tones.play('c');
@@ -365,6 +367,7 @@ function checkCollisions() {
 
       if(player.counter <= 0) {
         player.state = 'dead';
+        levelIterator = 0;
         game.state = 'over';
         overlay.title = 'DROPPED THE BEAT';
         overlay.subtitle = 'press space to play again';
