@@ -208,15 +208,15 @@ var language = (navigator.language || navigator.browserLanguage).split('-')[0];
 function updatePlayer() {
   if(player.state == 'dead' || player.counter <= 0) return;
       
-  // key a
+  // key a or q for French keyboard
   if(keyboard[65] || keyboard[81]) {
     player.y = 330;
     background.color = 'red';
     tones.play('c');
   }
   
-  // key w
-  if(keyboard[87]) {
+  // key w or z for French keyboard
+  if(keyboard[87] || keyboard[90]) {
     player.y = 305;
     background.color = 'crimson';
     tones.play('c#');
