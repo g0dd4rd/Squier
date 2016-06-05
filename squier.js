@@ -134,9 +134,14 @@ var level02 = [
 
 var testlevel = [
   // tone C
-  {x: 600, y: 360,
-  width: 100, height: 40,
-  state: 'alive', counter: -1},
+  {x: 600, y: 330,
+  width: player.width, height: player.height,
+  state: 'alive', counter: 1},
+
+  // tone E
+  {x: 630, y: 270,
+  width: player.width, height: player.height,
+  state: 'alive', counter: 1},
 ];
 
 function initLevel(level) {
@@ -152,7 +157,8 @@ function initLevel(level) {
   }
 }
 
-var levels = [level00, level01, level02];
+var levels = [testlevel];
+//var levels = [level00, level01, level02];
 var levelIterator = 0;
 
 // =========== Game ============
@@ -354,6 +360,9 @@ function updateEnemies() {
 function checkCollisions() {
   if(player.state == 'dead') return;
 
+// counter = -1; harmless
+// counter = 0; harmful
+// counter = 1; collectable 
   var enemy;
   for(var i = 0; i < semitones.length; i++) {
     enemy = semitones[i];
@@ -361,8 +370,11 @@ function checkCollisions() {
       player.state = 'hit';
       if(enemy.counter == -1) {
         player.y = enemy.y - player.height;
-      } else {
+      } else if(enemy.counter == 0) {
         player.counter -= 1;
+      } else if(enemy.counter == 1) {
+        player.counter += 1;
+        enemy.x = -enemy.width;
       }
 
       if(player.counter <= 0) {
