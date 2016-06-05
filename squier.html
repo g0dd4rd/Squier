@@ -58,8 +58,10 @@ function drawEnemies(c) {
     if(enemy.state == 'alive') {
       if(enemy.counter == -1) {
         c.fillStyle = 'white';
-      } else {
+      } else if(enemy.counter == 0) {
         c.fillStyle = 'grey';
+      } else if(enemy.counter == 1) {
+        c.fillStyle = 'brown';
       }
 
       c.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
