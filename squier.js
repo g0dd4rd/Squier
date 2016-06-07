@@ -30,178 +30,178 @@ var level00 = [
 // tone C
   {x: 600, y: 360,
   width: 10, height: 40,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone D
   {x: 610, y: 330,
   width: 10, height: 70,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone E
   {x: 620, y: 300,
   width: 10, height: 100,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone F
   {x: 630, y: 270,
   width: 10, height: 130,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone G
   {x: 640, y: 240,
   width: 10, height: 160,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone A
   {x: 650, y: 210,
   width: 10, height: 190,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone B
   {x: 660, y: 180,
   width: 10, height: 220,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone C
   {x: 670, y: 150,
   width: 10, height: 250,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 ];
 
 var level01 = [
 // tone C#
   {x: 600, y: 345,
   width: 10, height: 55,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone D#
   {x: 610, y: 315,
   width: 10, height: 85,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone F#
   {x: 620, y: 255,
   width: 10, height: 145,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone G#
   {x: 630, y: 225,
   width: 10, height: 375,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone A#
   {x: 640, y: 195,
   width: 10, height: 205,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 ];
 
 var level02 = [
 // tone A
   {x: 600, y: 210,
   width: 15, height: 190,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone B
   {x: 615, y: 180,
   width: 15, height: 220,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone C
   {x: 630, y: 150,
   width: 15, height: 150,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone D
   {x: 690, y: 330,
   width: 15, height: 70,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone E
   {x: 705, y: 300,
   width: 15, height: 100,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone F
   {x: 720, y: 270,
   width: 15, height: 130,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
 // tone G
   {x: 735, y: 240,
   width: 15, height: 160,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 ];
 
 var level03 = [
   // tone C
   {x: 600, y: 330,
   width: player.width, height: player.height,
-  state: 'alive', counter: 1},
+  state: 'alive', color: 'brown'},
 
   // tone E
   {x: 630, y: 270,
   width: player.width, height: player.height,
-  state: 'alive', counter: 1},
+  state: 'alive', color: 'brown'},
 
   // tone G
   {x: 660, y: 210,
   width: player.width, height: player.height,
-  state: 'alive', counter: 1},
+  state: 'alive', color: 'brown'},
 
   // tone D
   {x: 720, y: 330,
   width: player.width, height: 70,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
   // tone D counterpart
   {x: 705, y: 255,
   width: player.width, height: -255,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
   // tone F#
   {x: 735, y: 285,
   width: player.width, height: 115,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
   // tone A
   {x: 750, y: 210,
   width: player.width, height: 190,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
   // tone E
   {x: 810, y: 270,
   width: player.width, height: player.height,
-  state: 'alive', counter: 1},
+  state: 'alive', color: 'brown'},
 
   // tone G
   {x: 840, y: 210,
   width: player.width, height: player.height,
-  state: 'alive', counter: 1},
+  state: 'alive', color: 'brown'},
 
   // tone B
   {x: 870, y: 150,
   width: player.width, height: player.height,
-  state: 'alive', counter: 1},
+  state: 'alive', color: 'brown'},
 
   // tone F
   {x: 930, y: 270,
   width: player.width, height: 130,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
   // tone G#
   {x: 945, y: 225,
   width: player.width, height: 175,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
   // tone C
   {x: 960, y: 360,
   width: player.width, height: 40,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 
   // tone C counterpart
   {x: 990, y: 300,
   width: player.width, height: -300,
-  state: 'alive', counter: 0},
+  state: 'alive', color: 'grey'},
 ];
 
 function initLevel(level) {
@@ -212,7 +212,7 @@ function initLevel(level) {
       width: level[i].width,
       height: level[i].height,
       state: level[i].state,
-      counter: level[i].counter
+      color: level[i].color
     });
   }
 }
@@ -428,11 +428,11 @@ function checkCollisions() {
     enemy = semitones[i];
     if(collided(enemy, player)) {
       player.state = 'hit';
-      if(enemy.counter == -1) {
+      if(enemy.color == 'white') {
         player.y = enemy.y - player.height;
-      } else if(enemy.counter == 0) {
+      } else if(enemy.color == 'grey') {
         player.counter -= 1;
-      } else if(enemy.counter == 1) {
+      } else if(enemy.color == 'brown') {
         player.counter += 1;
         enemy.x = -enemy.width;
       }
