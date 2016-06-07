@@ -132,7 +132,7 @@ var level02 = [
   state: 'alive', counter: 0},
 ];
 
-var testlevel = [
+var level03 = [
   // tone C
   {x: 600, y: 330,
   width: player.width, height: player.height,
@@ -142,6 +142,66 @@ var testlevel = [
   {x: 630, y: 270,
   width: player.width, height: player.height,
   state: 'alive', counter: 1},
+
+  // tone G
+  {x: 660, y: 210,
+  width: player.width, height: player.height,
+  state: 'alive', counter: 1},
+
+  // tone D
+  {x: 720, y: 330,
+  width: player.width, height: 70,
+  state: 'alive', counter: 0},
+
+  // tone D counterpart
+  {x: 705, y: 255,
+  width: player.width, height: -255,
+  state: 'alive', counter: 0},
+
+  // tone F#
+  {x: 735, y: 285,
+  width: player.width, height: 115,
+  state: 'alive', counter: 0},
+
+  // tone A
+  {x: 750, y: 210,
+  width: player.width, height: 190,
+  state: 'alive', counter: 0},
+
+  // tone E
+  {x: 810, y: 270,
+  width: player.width, height: player.height,
+  state: 'alive', counter: 1},
+
+  // tone G
+  {x: 840, y: 210,
+  width: player.width, height: player.height,
+  state: 'alive', counter: 1},
+
+  // tone B
+  {x: 870, y: 150,
+  width: player.width, height: player.height,
+  state: 'alive', counter: 1},
+
+  // tone F
+  {x: 930, y: 270,
+  width: player.width, height: 130,
+  state: 'alive', counter: 0},
+
+  // tone G#
+  {x: 945, y: 225,
+  width: player.width, height: 175,
+  state: 'alive', counter: 0},
+
+  // tone C
+  {x: 960, y: 360,
+  width: player.width, height: 40,
+  state: 'alive', counter: 0},
+
+  // tone C counterpart
+  {x: 990, y: 300,
+  width: player.width, height: -300,
+  state: 'alive', counter: 0},
 ];
 
 function initLevel(level) {
@@ -157,8 +217,8 @@ function initLevel(level) {
   }
 }
 
-var levels = [testlevel];
-//var levels = [level00, level01, level02];
+//var levels = [testlevel];
+var levels = [level00, level01, level02, level03];
 var levelIterator = 0;
 
 // =========== Game ============
@@ -443,6 +503,10 @@ function checkEvents() {
   });
   attachEvent(document, 'keyup', function(e) {
     keyboard[e.keyCode] = false;
+  });
+
+  attachEvent(document, 'mousedown', function(e) {
+    console.log('mouse down event');
   });
 }
 
