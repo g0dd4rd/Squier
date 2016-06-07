@@ -8,4 +8,13 @@ TODO:
 - add left/right movement #done
 - goal of the game is to remain human
 
+Suggestions:
+- QF-MichaelK:
+-- rotate the Entire thing, it feels sideways since the keyboard is left to right, the movement is up/down
+-- increase the speed a bit
+-- put an outline around the "main" rectangle of a different color because sometimes the backgrounds sort of obscure it
+-- would be neat to have particle effects too
+
+- Sk3letor:
+-- make the sounds less painful
 
