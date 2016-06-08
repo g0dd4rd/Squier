@@ -1,6 +1,7 @@
 TODO:
 - player should die after a while of missing notes or not playing #done
 - use JSON files for levels
+- add beats
 - should player get points for hitting a note more than once?
 - think more about level properties (min. score for a level, sound/graphics effects...)
 - create game editor 
