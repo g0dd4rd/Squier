@@ -11,6 +11,9 @@ TODO:
 - goal of the game is to remain human
 
 Suggestions:
+- cidic:
+-- need big text telling user their speakers must be on
+
 - QF-MichaelK:
 -- rotate the Entire thing, it feels sideways since the keyboard is left to right, the movement is up/down
 -- increase the speed a bit
