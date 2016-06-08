@@ -1,5 +1,6 @@
 // not implemented as of ff 42.0 import "../tones/tones.js";
 
+var r = 0, g = 0, b = 0;
 var background = {
   color: 'black'
 };
@@ -277,98 +278,112 @@ function updatePlayer() {
   // key a or q for French keyboard
   if(keyboard[65] || keyboard[81]) {
     player.y = 330;
-    background.color = 'red';
+    r = 255; g = 0; b = 0;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
     tones.play('c');
   }
   
   // key w or z for French keyboard
   if(keyboard[87] || keyboard[90]) {
     player.y = 305;
-    background.color = 'crimson';
+    r = 220; g = 20; b = 60;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // crimson
     tones.play('c#');
   }
 
   // key s
   if(keyboard[83]) {
     player.y = 300;
-    background.color = 'orange';
+    r = 255; g = 165; b = 0;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // orange
     tones.play('D');
   }
   
   // key e
   if(keyboard[69]) {
     player.y = 285;
-    background.color = 'gold';
+    r = 255; g = 215; b = 0;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // gold
     tones.play('D#');
   }
 
   // key d
   if(keyboard[68]) {
     player.y = 270;
-    background.color = 'yellow';
+    r = 255; g = 255; b = 0;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // yellow
     tones.play('E');
   }
 
   // key f
   if(keyboard[70]) {
     player.y = 240;
-    background.color = 'green';
+    r = 0; g = 128; b = 0;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // green
     tones.play('f');
   }
 
   // key t
   if(keyboard[84]) {
     player.y = 225;
-    background.color = 'seagreen'; //'teal';
+    r = 46; g = 139; b = 87;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // seagreen
     tones.play('f#');
   }
   
   // key g
   if(keyboard[71]) {
     player.y = 210;
-    background.color = 'cyan';
+    r = 0; g = 255; b = 255;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // cyan
     tones.play('g');
   }
   
   // key y
   if(keyboard[89]) {
     player.y = 195;
-    background.color = 'teal';
+    r = 0; g = 128; b = 128;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // teal
     tones.play('g#');
   }
 
   // key h
   if(keyboard[72]) {
     player.y = 180;
-    background.color = 'blue';
+    r = 0; g = 0; b = 255;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // blue
     tones.play('A');
   }
   
   // key u
   if(keyboard[85]) {
     player.y = 165;
-    background.color = 'mediumorchid';
+    r = 186; g = 85; b = 211;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // mediumorchid
     tones.play('A#');
   }
 
   // key j
   if(keyboard[74]) {
     player.y = 150;
-    background.color = 'purple';
+    r = 128; g = 0; b = 128;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // purple
     tones.play('b');
   }
 
   // key k
   if(keyboard[75]) {
     player.y = 120;
-    background.color = 'magenta';
+    r = 255; g = 0; b = 255;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // magenta
     tones.play('c', 5);
   }
 
   // key l
   if(keyboard[76]) {
     player.y = 90;
-    background.color = 'black'; 
+    r = 0; g = 0; b = 0;
+    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // black
     tones.play('D', 5);
   }
 
@@ -389,6 +404,7 @@ function updatePlayer() {
 
 function updateBackground() {
   //console.log('background.color: '+ background.color);
+  background.color = "rgb("+ r-- +", "+ g-- +", "+ b-- +")";
 }
 
 // ============== Enemy =============
