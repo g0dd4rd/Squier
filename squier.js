@@ -205,6 +205,12 @@ var level03 = [
   state: 'alive', color: 'grey'},
 ];
 
+var testlevel = [
+  {x: 300, y: 0,
+   width: 5, height: 5,
+   state: 'alive', color: 'brown'},
+];
+
 function initLevel(level) {
   for(var i = 0; i < level.length; i++) {
     semitones.push({
@@ -218,8 +224,8 @@ function initLevel(level) {
   }
 }
 
-//var levels = [testlevel];
-var levels = [level00, level01, level02, level03];
+var levels = [testlevel];
+//var levels = [level00, level01, level02, level03];
 var levelIterator = 0;
 
 // =========== Game ============
@@ -252,6 +258,7 @@ function updateGame() {
     player.state = 'alive';
     player.counter = 100;
     overlay.counter = -1;
+    //overlay.title = 'READY YOUR SPEAKERS';
   }
 
   if(game.state == 'won' && keyboard[32]) {
@@ -277,7 +284,7 @@ function updatePlayer() {
       
   // key a or q for French keyboard
   if(keyboard[65] || keyboard[81]) {
-    player.y = 330;
+    player.x = 90; //330;
     r = 255; g = 0; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
     tones.play('c');
@@ -285,7 +292,7 @@ function updatePlayer() {
   
   // key w or z for French keyboard
   if(keyboard[87] || keyboard[90]) {
-    player.y = 305;
+    player.x = 105; //305;
     r = 220; g = 20; b = 60;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // crimson
     tones.play('c#');
@@ -293,7 +300,7 @@ function updatePlayer() {
 
   // key s
   if(keyboard[83]) {
-    player.y = 300;
+    player.x = 120; //300;
     r = 255; g = 165; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // orange
     tones.play('D');
@@ -301,7 +308,7 @@ function updatePlayer() {
   
   // key e
   if(keyboard[69]) {
-    player.y = 285;
+    player.x = 135; //285;
     r = 255; g = 215; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // gold
     tones.play('D#');
@@ -309,7 +316,7 @@ function updatePlayer() {
 
   // key d
   if(keyboard[68]) {
-    player.y = 270;
+    player.x = 150; //270;
     r = 255; g = 255; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // yellow
     tones.play('E');
@@ -317,7 +324,7 @@ function updatePlayer() {
 
   // key f
   if(keyboard[70]) {
-    player.y = 240;
+    player.x = 165; //240;
     r = 0; g = 128; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // green
     tones.play('f');
@@ -325,7 +332,7 @@ function updatePlayer() {
 
   // key t
   if(keyboard[84]) {
-    player.y = 225;
+    player.x = 180; //225;
     r = 46; g = 139; b = 87;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // seagreen
     tones.play('f#');
@@ -333,7 +340,7 @@ function updatePlayer() {
   
   // key g
   if(keyboard[71]) {
-    player.y = 210;
+    player.x = 195; //210;
     r = 0; g = 255; b = 255;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // cyan
     tones.play('g');
@@ -341,7 +348,7 @@ function updatePlayer() {
   
   // key y
   if(keyboard[89]) {
-    player.y = 195;
+    player.x = 210; //195;
     r = 0; g = 128; b = 128;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // teal
     tones.play('g#');
@@ -349,7 +356,7 @@ function updatePlayer() {
 
   // key h
   if(keyboard[72]) {
-    player.y = 180;
+    player.x = 225; //180;
     r = 0; g = 0; b = 255;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // blue
     tones.play('A');
@@ -357,7 +364,7 @@ function updatePlayer() {
   
   // key u
   if(keyboard[85]) {
-    player.y = 165;
+    player.x = 240; //165;
     r = 186; g = 85; b = 211;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // mediumorchid
     tones.play('A#');
@@ -365,7 +372,7 @@ function updatePlayer() {
 
   // key j
   if(keyboard[74]) {
-    player.y = 150;
+    player.x = 255; //150;
     r = 128; g = 0; b = 128;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // purple
     tones.play('b');
@@ -373,7 +380,7 @@ function updatePlayer() {
 
   // key k
   if(keyboard[75]) {
-    player.y = 120;
+    player.x = 270; //120;
     r = 255; g = 0; b = 255;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // magenta
     tones.play('c', 5);
@@ -381,7 +388,7 @@ function updatePlayer() {
 
   // key l
   if(keyboard[76]) {
-    player.y = 90;
+    player.x = 285; //90;
     r = 0; g = 0; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // black
     tones.play('D', 5);
@@ -397,8 +404,10 @@ function updatePlayer() {
     player.x++;
   }
  
-  if(player.y < 350) {
-    player.y++;
+  if(player.x < 350 && player.x > 90) {
+    player.x--;
+  } else {
+    player.x = 90;
   }
 }
 
