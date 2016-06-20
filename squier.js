@@ -17,7 +17,7 @@ var overlay = {
 };
 
 var player = {
-  x: 100,
+  x: 75,
   y: 350,
   width: 15,
   height: 15,
@@ -29,43 +29,43 @@ var semitones = [];
 
 var level00 = [
 // tone C
-  {x: 600, y: 360,
-  width: 10, height: 40,
+  {x: 0, y: 0,
+  width: 80, height: 10,
   state: 'alive', color: 'grey'},
 
 // tone D
-  {x: 610, y: 330,
-  width: 10, height: 70,
+  {x: 0, y: -10,
+  width: 110, height: 10,
   state: 'alive', color: 'grey'},
 
 // tone E
-  {x: 620, y: 300,
-  width: 10, height: 100,
+  {x: 0, y: -20,
+  width: 140, height: 10,
   state: 'alive', color: 'grey'},
 
 // tone F
-  {x: 630, y: 270,
-  width: 10, height: 130,
+  {x: 0, y: -30,
+  width: 155, height: 10,
   state: 'alive', color: 'grey'},
 
 // tone G
-  {x: 640, y: 240,
-  width: 10, height: 160,
+  {x: 0, y: -40,
+  width: 185, height: 10,
   state: 'alive', color: 'grey'},
 
 // tone A
-  {x: 650, y: 210,
-  width: 10, height: 190,
+  {x: 0, y: -50,
+  width: 215, height: 10,
   state: 'alive', color: 'grey'},
 
 // tone B
-  {x: 660, y: 180,
-  width: 10, height: 220,
+  {x: 0, y: -60,
+  width: 245, height: 10,
   state: 'alive', color: 'grey'},
 
 // tone C
-  {x: 670, y: 150,
-  width: 10, height: 250,
+  {x: 0, y: -70,
+  width: 260, height: 10,
   state: 'alive', color: 'grey'},
 ];
 
@@ -206,8 +206,8 @@ var level03 = [
 ];
 
 var testlevel = [
-  {x: 300, y: 0,
-   width: 5, height: 5,
+  {x: 100, y: 0,
+   width: 50, height: 50,
    state: 'alive', color: 'brown'},
 ];
 
@@ -224,7 +224,7 @@ function initLevel(level) {
   }
 }
 
-var levels = [testlevel];
+var levels = [level00];
 //var levels = [level00, level01, level02, level03];
 var levelIterator = 0;
 
@@ -404,10 +404,10 @@ function updatePlayer() {
     player.x++;
   }
  
-  if(player.x < 350 && player.x > 90) {
+  if(player.x < 350 && player.x > 75) {
     player.x--;
   } else {
-    player.x = 90;
+    player.x = 75;
   }
 }
 
@@ -431,13 +431,14 @@ function updateEnemies() {
     if(!enemy) continue;
     if(enemy && enemy.state == 'alive') {
       //enemy.counter++;
-      enemy.x--;
+      enemy.y++;
     }
   }
 
   //remove the ones that are off the screen
   semitones = semitones.filter(function(enemy) {
-    return enemy.x + enemy.width > 0;
+    //return enemy.x + enemy.width > 0;
+    return enemy.y < 400 ; //+ enemy.height > 0;
   });
 }
 
