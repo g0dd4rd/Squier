@@ -74,6 +74,12 @@ function drawOverlay(c) {
     c.fillText(overlay.subtitle, 190, 250);
   }
 
+  if(game.state == 'start') {
+    c.fillText('press space to play', 190, 250);
+    c.font = "Bold 40pt Arial";
+    c.fillText('READY YOUR SPEAKERS', 30, 200);
+  }
+
   if(game.state == 'over') {
     c.fillText(overlay.subtitle, 190, 250);
     c.font = "Bold 40pt Arial";
