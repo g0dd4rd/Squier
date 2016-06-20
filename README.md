@@ -15,7 +15,7 @@ Suggestions:
 -- need big text telling user their speakers must be on
 
 - QF-MichaelK:
--- rotate the Entire thing, it feels sideways since the keyboard is left to right, the movement is up/down
+-- rotate the Entire thing, it feels sideways since the keyboard is left to right, the movement is up/down #done
 -- increase the speed a bit
 -- put an outline around the "main" rectangle of a different color because sometimes the backgrounds sort of obscure it
 -- would be neat to have particle effects too
