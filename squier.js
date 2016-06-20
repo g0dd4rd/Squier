@@ -27,47 +27,40 @@ var player = {
 var keyboard = {};
 var semitones = [];
 
-var level00 = [
-// tone C
-  {x: 0, y: 0,
+var C = {x: 0, y: 0,
   width: 80, height: 10,
-  state: 'alive', color: 'grey'},
+  state: 'alive', color: 'grey'};
 
-// tone D
-  {x: 0, y: -10,
+var D = {x: 0, y: -10,
   width: 110, height: 10,
-  state: 'alive', color: 'grey'},
+  state: 'alive', color: 'grey'};
 
-// tone E
-  {x: 0, y: -20,
+var E = {x: 0, y: -20,
   width: 140, height: 10,
-  state: 'alive', color: 'grey'},
+  state: 'alive', color: 'grey'};
 
-// tone F
-  {x: 0, y: -30,
+var F = {x: 0, y: -30,
   width: 155, height: 10,
-  state: 'alive', color: 'grey'},
+  state: 'alive', color: 'grey'};
 
-// tone G
-  {x: 0, y: -40,
+var G = {x: 0, y: -40,
   width: 185, height: 10,
-  state: 'alive', color: 'grey'},
+  state: 'alive', color: 'grey'};
 
-// tone A
-  {x: 0, y: -50,
+var A = {x: 0, y: -50,
   width: 215, height: 10,
-  state: 'alive', color: 'grey'},
+  state: 'alive', color: 'grey'};
 
-// tone B
-  {x: 0, y: -60,
+var B = {x: 0, y: -60,
   width: 245, height: 10,
-  state: 'alive', color: 'grey'},
+  state: 'alive', color: 'grey'};
 
-// tone C
-  {x: 0, y: -70,
+var C1 = {x: 0, y: -70,
   width: 260, height: 10,
-  state: 'alive', color: 'grey'},
-];
+  state: 'alive', color: 'grey'};
+
+var level00 = [
+  C, D, E, F, G, A, B, C1];
 
 var level01 = [
 // tone C#
