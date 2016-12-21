@@ -17,190 +17,61 @@ var overlay = {
 };
 
 var player = {
-  x: 75,
+  x: 60,
   y: 350,
   width: 15,
   height: 15,
-  counter: 100,
+  counter: 0,
 };
 
 var keyboard = {};
 var semitones = [];
 
-var C = {x: 0, y: 0,
-  width: 80, height: 10,
-  state: 'alive', color: 'grey'};
-
-var D = {x: 0, y: -10,
-  width: 110, height: 10,
-  state: 'alive', color: 'grey'};
-
-var E = {x: 0, y: -20,
-  width: 140, height: 10,
-  state: 'alive', color: 'grey'};
-
-var F = {x: 0, y: -30,
-  width: 155, height: 10,
-  state: 'alive', color: 'grey'};
-
-var G = {x: 0, y: -40,
-  width: 185, height: 10,
-  state: 'alive', color: 'grey'};
-
-var A = {x: 0, y: -50,
-  width: 215, height: 10,
-  state: 'alive', color: 'grey'};
-
-var B = {x: 0, y: -60,
-  width: 245, height: 10,
-  state: 'alive', color: 'grey'};
-
-var C1 = {x: 0, y: -70,
-  width: 260, height: 10,
-  state: 'alive', color: 'grey'};
-
-var level00 = [
-  C, D, E, F, G, A, B, C1];
-
-var level01 = [
-// tone C#
-  {x: 600, y: 345,
-  width: 10, height: 55,
-  state: 'alive', color: 'grey'},
-
-// tone D#
-  {x: 610, y: 315,
-  width: 10, height: 85,
-  state: 'alive', color: 'grey'},
-
-// tone F#
-  {x: 620, y: 255,
-  width: 10, height: 145,
-  state: 'alive', color: 'grey'},
-
-// tone G#
-  {x: 630, y: 225,
-  width: 10, height: 375,
-  state: 'alive', color: 'grey'},
-
-// tone A#
-  {x: 640, y: 195,
-  width: 10, height: 205,
-  state: 'alive', color: 'grey'},
-];
-
-var level02 = [
-// tone A
-  {x: 600, y: 210,
-  width: 15, height: 190,
-  state: 'alive', color: 'grey'},
-
-// tone B
-  {x: 615, y: 180,
-  width: 15, height: 220,
-  state: 'alive', color: 'grey'},
-
-// tone C
-  {x: 630, y: 150,
-  width: 15, height: 150,
-  state: 'alive', color: 'grey'},
-
-// tone D
-  {x: 690, y: 330,
-  width: 15, height: 70,
-  state: 'alive', color: 'grey'},
-
-// tone E
-  {x: 705, y: 300,
-  width: 15, height: 100,
-  state: 'alive', color: 'grey'},
-
-// tone F
-  {x: 720, y: 270,
-  width: 15, height: 130,
-  state: 'alive', color: 'grey'},
-
-// tone G
-  {x: 735, y: 240,
-  width: 15, height: 160,
-  state: 'alive', color: 'grey'},
-];
-
-var level03 = [
-  // tone C
-  {x: 600, y: 330,
-  width: player.width, height: player.height,
-  state: 'alive', color: 'brown'},
-
-  // tone E
-  {x: 630, y: 270,
-  width: player.width, height: player.height,
-  state: 'alive', color: 'brown'},
-
-  // tone G
-  {x: 660, y: 210,
-  width: player.width, height: player.height,
-  state: 'alive', color: 'brown'},
-
-  // tone D
-  {x: 720, y: 330,
-  width: player.width, height: 70,
-  state: 'alive', color: 'grey'},
-
-  // tone D counterpart
-  {x: 705, y: 255,
-  width: player.width, height: -255,
-  state: 'alive', color: 'grey'},
-
-  // tone F#
-  {x: 735, y: 285,
-  width: player.width, height: 115,
-  state: 'alive', color: 'grey'},
-
-  // tone A
-  {x: 750, y: 210,
-  width: player.width, height: 190,
-  state: 'alive', color: 'grey'},
-
-  // tone E
-  {x: 810, y: 270,
-  width: player.width, height: player.height,
-  state: 'alive', color: 'brown'},
-
-  // tone G
-  {x: 840, y: 210,
-  width: player.width, height: player.height,
-  state: 'alive', color: 'brown'},
-
-  // tone B
-  {x: 870, y: 150,
-  width: player.width, height: player.height,
-  state: 'alive', color: 'brown'},
-
-  // tone F
-  {x: 930, y: 270,
-  width: player.width, height: 130,
-  state: 'alive', color: 'grey'},
-
-  // tone G#
-  {x: 945, y: 225,
-  width: player.width, height: 175,
-  state: 'alive', color: 'grey'},
-
-  // tone C
-  {x: 960, y: 360,
-  width: player.width, height: 40,
-  state: 'alive', color: 'grey'},
-
-  // tone C counterpart
-  {x: 990, y: 300,
-  width: player.width, height: -300,
-  state: 'alive', color: 'grey'},
-];
-
-var testlevel = [
-  {x: 100, y: 0,
-   width: 50, height: 50,
+var level00 = [ // up and down a C maj scale
+  {x: 90, y: 0, // C
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 120, y: -30, // D
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -60, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 165, y: -90, // F
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -120, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 225, y: -150, // A
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 255, y: -180, // B
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 270, y: -210, // C1
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 255, y: -240, // B
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 225, y: -270, // A
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -300, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 165, y: -330, // F
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -360, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 120, y: -390, // D
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 90, y: 420, // C
+   width: 10, height: 10,
    state: 'alive', color: 'brown'},
 ];
 
@@ -217,8 +88,7 @@ function initLevel(level) {
   }
 }
 
-var levels = [level00];
-//var levels = [level00, level01, level02, level03];
+var levels = [level00]; //, level01, level02, level03];
 var levelIterator = 0;
 
 // =========== Game ============
@@ -271,9 +141,9 @@ function updateGame() {
   }  
 }
 
-var language = (navigator.language || navigator.browserLanguage).split('-')[0];
+//var language = (navigator.language || navigator.browserLanguage).split('-')[0];
 function updatePlayer() {
-  if(player.state == 'dead' || player.counter <= 0) return;
+  if(player.state == 'dead' || player.counter < 0) return;//<= 0) return;
       
   // key a or q for French keyboard
   if(keyboard[65] || keyboard[81]) {
@@ -397,10 +267,10 @@ function updatePlayer() {
     player.x++;
   }
  
-  if(player.x < 350 && player.x > 75) {
+  if(player.x < 350 && player.x > 60) {
     player.x--;
   } else {
-    player.x = 75;
+    player.x = 60;
   }
 }
 
