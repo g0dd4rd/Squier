@@ -75,6 +75,51 @@ var level00 = [ // up and down a C maj scale
    state: 'alive', color: 'brown'},
 ];
 
+var level01 = [ // up and down C maj scale in 3rds
+  {x: 90, y: 0, // C
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -30, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 120, y: -60, // D
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 165, y: -90, // F
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -120, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -150, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 165, y: -180, // F
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 225, y: -210, // A
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -240, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 255, y: -270, // B
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 225, y: -300, // A
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 270, y: -330, // C1
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 255, y: -350, // B
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 300, y: -380, // D1
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+];
+
 function initLevel(level) {
   for(var i = 0; i < level.length; i++) {
     semitones.push({
@@ -88,7 +133,7 @@ function initLevel(level) {
   }
 }
 
-var levels = [level00]; //, level01, level02, level03];
+var levels = [level00, level01]; //, level02, level03];
 var levelIterator = 0;
 
 // =========== Game ============
@@ -251,7 +296,7 @@ function updatePlayer() {
 
   // key l
   if(keyboard[76]) {
-    player.x = 285; //90;
+    player.x = 300; //90;
     r = 0; g = 0; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // black
     tones.play('D', 5);
