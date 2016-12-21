@@ -70,7 +70,7 @@ var level00 = [ // up and down a C maj scale
   {x: 120, y: -390, // D
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
-  {x: 90, y: 420, // C
+  {x: 90, y: -420, // C
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
 ];
