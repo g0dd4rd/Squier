@@ -120,7 +120,9 @@ var level01 = [ // up and down C maj scale in 3rds
    state: 'alive', color: 'brown'},
 ];
 
+var levelLength = 0;
 function initLevel(level) {
+  levelLength = level.length;
   for(var i = 0; i < level.length; i++) {
     semitones.push({
       x: level[i].x,
@@ -140,11 +142,11 @@ var levelIterator = 0;
 function updateGame() {
   if(game.state == 'playing' && semitones.length == 0) {
     game.state = 'won';
-    if(player.counter >= 100 / 1.33) {
+    if(player.counter >= levelLength / 1.33) {
       overlay.title = 'WELL PLAYED!';
-    } else if(player.counter < 100 / 1.33 && player.counter >= 100 / 2) {
+    } else if(player.counter < levelLength / 1.33 && player.counter >= levelLength / 2) {
       overlay.title = 'HEY, TONES!';
-    } else if(player.counter < 100 / 2 && player.counter >= 100 / 4) {
+    } else if(player.counter < levelLength / 2 && player.counter >= levelLength / 4) {
       overlay.title = 'MEH, SOUNDS';
     } else {
       overlay.title = 'MEH';
