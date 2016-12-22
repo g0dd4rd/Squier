@@ -120,6 +120,74 @@ var level01 = [ // up and down C maj scale in 3rds
    state: 'alive', color: 'brown'},
 ];
 
+var level02 = [
+  {x: 90, y: 0, // C
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -60, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -120, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 90, y: -180, // C
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -240, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -300, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -330, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -360, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 120, y: -390, // D
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -420, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -450, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 120, y: -480, // D
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  // repeat the middle part
+  {x: 150, y: -510, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -540, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 120, y: -570, // D
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -600, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -630, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 120, y: -660, // D
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  // outro
+  {x: 150, y: -690, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 120, y: -720, // D
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 90, y: -750, // C
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+];
+
 var levelLength = 0;
 function initLevel(level) {
   levelLength = level.length;
@@ -135,7 +203,7 @@ function initLevel(level) {
   }
 }
 
-var levels = [level00, level01]; //, level02, level03];
+var levels = [level02]; //level00, level01]; //, level02, level03];
 var levelIterator = 0;
 
 // =========== Game ============
