@@ -23,3 +23,6 @@ Suggestions:
 - Sk3letor:
 -- make the sounds less painful
 
+- llamapixel
+-- add key/note description to each sq. representing one, remove in harder levels
+
