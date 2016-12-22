@@ -203,7 +203,7 @@ function initLevel(level) {
   }
 }
 
-var levels = [level02]; //level00, level01]; //, level02, level03];
+var levels = [level00, level01, level02]; //, level03];
 var levelIterator = 0;
 
 // =========== Game ============
