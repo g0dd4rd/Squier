@@ -329,7 +329,7 @@ function updateBackground() {
 // ============== Enemy =============
 function updateEnemies() {
   //create new enemies the first time through
-  if(game.state == 'start') {
+  if(game.state == 'start' && keyboard[32]) {
     enemyBullets = [];
     game.state = 'playing';
   }
