@@ -49,7 +49,7 @@ var level00 = [ // up and down a C maj scale
   {x: 255, y: -180, // B
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
-  {x: 270, y: -210, // C1
+  {x: 270, y: -210, // C5
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
   {x: 255, y: -240, // B
@@ -109,18 +109,18 @@ var level01 = [ // up and down C maj scale in 3rds
   {x: 225, y: -300, // A
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
-  {x: 270, y: -330, // C1
+  {x: 270, y: -330, // C5
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
   {x: 255, y: -350, // B
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
-  {x: 300, y: -380, // D1
+  {x: 300, y: -380, // D5
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
 ];
 
-var level02 = [
+var level02 = [ ovcaci, ctveraci
   {x: 90, y: 0, // C
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
@@ -188,6 +188,99 @@ var level02 = [
    state: 'alive', color: 'brown'},
 ];
 
+var level03 = [ // non-diatonic 3rds
+  {x: 255, y: 0, // B
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 300, y: -20, // D5
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 255, y: -40, // B
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 300, y: -60, // D5
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+
+  {x: 225, y: -80, // A
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 270, y: -100, // C5
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 225, y: -120, // A
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 270, y: -140, // C5
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+
+  {x: 195, y: -160, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 240, y: -180, // A#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -200, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 240, y: -220, // A#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+
+  {x: 165, y: -240, // F
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 210, y: -260, // G#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 165, y: -280, // F
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 210, y: -300, // G#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+
+  {x: 150, y: -320, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 180, y: -340, // F#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 150, y: -360, // E
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 180, y: -380, // F#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+
+  {x: 120, y: -400, // D
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 165, y: -420, // F
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 120, y: -440, // D
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 165, y: -460, // F
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  
+  {x: 90, y: -480, // C
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 135, y: -500, // D#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 90, y: -520, // C
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 135, y: -540, // D#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+];
+
 var levelLength = 0;
 function initLevel(level) {
   levelLength = level.length;
@@ -203,7 +296,7 @@ function initLevel(level) {
   }
 }
 
-var levels = [level00, level01, level02]; //, level03];
+var levels = [level03];//, level01, level02]; //, level03];
 var levelIterator = 0;
 
 // =========== Game ============
