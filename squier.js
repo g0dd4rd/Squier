@@ -19,8 +19,8 @@ var overlay = {
 var player = {
   x: 60,
   y: 350,
-  width: 15,
-  height: 15,
+  width: 10,
+  height: 10,
   counter: 0,
 };
 
@@ -31,6 +31,9 @@ var level00 = [ // up and down a C maj scale
   {x: 90, y: 0, // C
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
+  {x: 100, y: 0,
+   width: 10, height: 10,
+   state: 'alive', color: 'grey'}, 	
   {x: 120, y: -30, // D
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
@@ -75,7 +78,7 @@ var level00 = [ // up and down a C maj scale
    state: 'alive', color: 'brown'},
 ];
 
-var level01 = [ // up and down C maj scale in 3rds
+var level01 = [ // up C maj scale in 3rds
   {x: 90, y: 0, // C
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
@@ -120,7 +123,7 @@ var level01 = [ // up and down C maj scale in 3rds
    state: 'alive', color: 'brown'},
 ];
 
-var level02 = [ ovcaci, ctveraci
+var level02 = [ // ovcaci, ctveraci
   {x: 90, y: 0, // C
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
@@ -281,6 +284,64 @@ var level03 = [ // non-diatonic 3rds
    state: 'alive', color: 'brown'},
 ];
 
+var level04 = [
+  {x: 90, y: 0, // C
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 135, y: -20, // D#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -40, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 90, y: -60, // C
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 135, y: -80, // D#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -100, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 90, y: -120, // C
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 135, y: -140, // D#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 165, y: -150, // F
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+
+  {x: 195, y: -170, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 240, y: -190, // A#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 270, y: -210, // C5
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -230, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 240, y: -250, // A#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 270, y: -270, // C5
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 195, y: -290, // G
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 240, y: -310, // A#
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+  {x: 300, y: -320, // D5
+   width: 10, height: 10,
+   state: 'alive', color: 'brown'},
+];
+
 var levelLength = 0;
 function initLevel(level) {
   levelLength = level.length;
@@ -296,7 +357,7 @@ function initLevel(level) {
   }
 }
 
-var levels = [level03];//, level01, level02]; //, level03];
+var levels = [level00];//, level01, level02, level03, level04];
 var levelIterator = 0;
 
 // =========== Game ============
@@ -306,15 +367,16 @@ function updateGame() {
     if(player.counter >= levelLength / 1.33) {
       overlay.title = 'WELL PLAYED!';
     } else if(player.counter < levelLength / 1.33 && player.counter >= levelLength / 2) {
-      overlay.title = 'HEY, TONES!';
+      overlay.title = 'HEY, TONES :P';
     } else if(player.counter < levelLength / 2 && player.counter >= levelLength / 4) {
-      overlay.title = 'MEH, SOUNDS';
+      overlay.title = 'YOU DEAF???';
     } else {
-      overlay.title = 'MEH';
+      overlay.title = 'YOU RUINED IT.';
     }
 
     overlay.subtitle = 'press space to play next level';
     overlay.counter = 0;
+    player.counter = 0;
   }
 
   if(game.state == 'editing') {
