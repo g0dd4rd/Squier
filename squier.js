@@ -33,7 +33,7 @@ var level00 = [ // up and down a C maj scale
    state: 'alive', color: 'brown'},
   {x: 100, y: 0,
    width: 10, height: 10,
-   state: 'alive', color: 'grey'}, 	
+   state: 'alive', color: 'white'}, 	
   {x: 120, y: -30, // D
    width: 10, height: 10,
    state: 'alive', color: 'brown'},
@@ -357,7 +357,7 @@ function initLevel(level) {
   }
 }
 
-var levels = [level00];//, level01, level02, level03, level04];
+var levels = [level00, level01];//, level02, level03, level04];
 var levelIterator = 0;
 
 // =========== Game ============
@@ -372,6 +372,7 @@ function updateGame() {
       overlay.title = 'YOU DEAF???';
     } else {
       overlay.title = 'YOU RUINED IT.';
+      levelIterator -= 1;
     }
 
     overlay.subtitle = 'press space to play next level';
