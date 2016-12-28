@@ -415,7 +415,63 @@ function updateGame() {
 //var language = (navigator.language || navigator.browserLanguage).split('-')[0];
 function updatePlayer() {
   if(player.state == 'dead' || player.counter < 0) return;//<= 0) return;
-      
+
+  // key z or y      
+  if(keyboard[90]) { //|| keyboard[81]) {
+    player.x = 12; //330;
+    //r = 255; g = 0; b = 0;
+    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
+    tones.play('c', 3);
+  }
+
+  // key x
+  if(keyboard[88]) {
+    player.x = 24; //330;
+    //r = 255; g = 0; b = 0;
+    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
+    tones.play('d', 3);
+  }
+
+  // key c
+  if(keyboard[67]) {
+    player.x = 36; //330;
+    //r = 255; g = 0; b = 0;
+    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
+    tones.play('e', 3);
+  }
+
+  // key v
+  if(keyboard[86]) {
+    player.x = 48; //330;
+    //r = 255; g = 0; b = 0;
+    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
+    tones.play('f', 3);
+  }
+
+  // key b
+  if(keyboard[66]) {
+    player.x = 60; //330;
+    //r = 255; g = 0; b = 0;
+    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
+    tones.play('g', 3);
+  }
+
+  // key n
+  if(keyboard[78]) {
+    player.x = 72; //330;
+    //r = 255; g = 0; b = 0;
+    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
+    tones.play('a', 3);
+  }
+
+  // key m
+  if(keyboard[77]) {
+    player.x = 84; //330;
+    //r = 255; g = 0; b = 0;
+    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
+    tones.play('b', 3);
+  }
+
   // key a or q for French keyboard
   if(keyboard[65] || keyboard[81]) {
     player.x = 90; //330;
@@ -425,7 +481,7 @@ function updatePlayer() {
   }
   
   // key w or z for French keyboard
-  if(keyboard[87] || keyboard[90]) {
+  if(keyboard[87]) { // || keyboard[90]) {
     player.x = 105; //305;
     r = 220; g = 20; b = 60;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // crimson
@@ -651,13 +707,13 @@ var timestamp = Date.now();
 var deltaTimestamp = 0;
 function checkEvents() {
   attachEvent(document, 'keydown', function(e) {
-    if(game.editMode == true) {
-      deltaTimestamp = Date.now() - timestamp;
+    //if(game.editMode == true) {
+      //deltaTimestamp = Date.now() - timestamp;
       console.log('keycode: '+ e.keyCode +', character: '+ e.key); //String.fromCharCode(e.keyCode));
-      console.log('tone.x: '+ Math.floor(deltaTimestamp / (1000 / 30)));
-      console.log('tone.y: '+ player.y);
-      console.log('timestamp: '+ timestamp +', delta: '+ deltaTimestamp);
-    }
+      //console.log('tone.x: '+ Math.floor(deltaTimestamp / (1000 / 30)));
+      //console.log('tone.y: '+ player.y);
+      //console.log('timestamp: '+ timestamp +', delta: '+ deltaTimestamp);
+    //}
 
     keyboard[e.keyCode] = true;
   });
