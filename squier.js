@@ -1,5 +1,16 @@
 // not implemented as of ff 42.0 import "../tones/tones.js";
 
+// flow:
+// - goals - hit the right notes, let the player design a level
+// - feedback - =- points etc.
+// - no distraction - use headphones
+// - just right - balance
+
+// simplicity:
+// - core - less is more
+// - limited choices - 
+// - intuitive - guide the player a little bit
+// - player's perspective - step by step
 var r = 0, g = 0, b = 0;
 var background = {
   color: 'black'
