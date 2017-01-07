@@ -29,10 +29,10 @@ var overlay = {
 
 var player = {
   x: 60,
-  y: 350,
+  y: 390,
   width: 10,
   height: 10,
-  counter: 0,
+  counter: 3,
 };
 
 var keyboard = {};
@@ -353,6 +353,10 @@ var level04 = [
    state: 'alive', color: 'brown'},
 ];
 
+var level05 = [
+
+];
+
 var levelLength = 0;
 function initLevel(level) {
   levelLength = level.length;
@@ -368,7 +372,13 @@ function initLevel(level) {
   }
 }
 
-var levels = [level00, level01];//, level02, level03, level04];
+var testlevel = [
+  {x: 150, y: 375,
+  width: 120, height: 25,
+  state: 'alive', color: 'white'},
+];
+
+var levels = [testlevel];//[level00, level01];//, level02, level03, level04];
 var levelIterator = 0;
 
 // =========== Game ============
@@ -399,7 +409,7 @@ function updateGame() {
   if(game.state == 'over' && keyboard[32]) {
     game.state = 'start';
     background.color = 'black';
-    player.y = 350;
+    player.y = 400;
     player.state = 'alive';
     player.counter = 100;
     overlay.counter = -1;
@@ -413,7 +423,7 @@ function updateGame() {
       levelIterator = 0;
 
     initLevel(levels[levelIterator++]);
-    player.y = 350;
+    player.y = 400;
     player.state = 'alive';
     overlay.counter = -1;
   }
@@ -604,7 +614,24 @@ function updatePlayer() {
   if(keyboard[221]) {
     player.x++;
   }
- 
+
+// == BEGIN experiment with flappy bird-mario like mechanics ===
+  // key up 
+  if(keyboard[38]) {
+    player.y -= 15;
+  }
+
+  if(keyboard[40]) {
+    player.y += 15;
+  }
+
+  if(player.y < 390 && player.y > 0) {
+    player.y++;
+  } else {
+    player.y = 390;
+  }
+// === END ===
+
   if(player.x < 350 && player.x > 60) {
     player.x--;
   } else {
@@ -632,14 +659,15 @@ function updateEnemies() {
     if(!enemy) continue;
     if(enemy && enemy.state == 'alive') {
       //enemy.counter++;
-      enemy.y++;
+      //enemy.y++;
+      enemy.x--;
     }
   }
 
   //remove the ones that are off the screen
   semitones = semitones.filter(function(enemy) {
     //return enemy.x + enemy.width > 0;
-    return enemy.y < 400 ; //+ enemy.height > 0;
+    return enemy.y < 600;//enemy.y < 400 ; //+ enemy.height > 0;
   });
 }
 
