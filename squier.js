@@ -29,10 +29,10 @@ var overlay = {
 
 var player = {
   x: 60,
-  y: 390,
+  y: 350,
   width: 10,
   height: 10,
-  counter: 3,
+  counter: 0,
 };
 
 var keyboard = {};
@@ -40,52 +40,52 @@ var semitones = [];
 
 var level00 = [ // up and down a C maj scale
   {x: 90, y: 0, // C
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'c',
    state: 'alive', color: 'brown'},
   {x: 100, y: 0,
    width: 10, height: 10,
    state: 'alive', color: 'white'}, 	
   {x: 120, y: -30, // D
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'd',
    state: 'alive', color: 'brown'},
   {x: 150, y: -60, // E
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'e',
    state: 'alive', color: 'brown'},
   {x: 165, y: -90, // F
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'f',
    state: 'alive', color: 'brown'},
   {x: 195, y: -120, // G
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'g',
    state: 'alive', color: 'brown'},
   {x: 225, y: -150, // A
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'a',
    state: 'alive', color: 'brown'},
   {x: 255, y: -180, // B
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'b',
    state: 'alive', color: 'brown'},
   {x: 270, y: -210, // C5
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'c',
    state: 'alive', color: 'brown'},
   {x: 255, y: -240, // B
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'b',
    state: 'alive', color: 'brown'},
   {x: 225, y: -270, // A
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'a',
    state: 'alive', color: 'brown'},
   {x: 195, y: -300, // G
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'g',
    state: 'alive', color: 'brown'},
   {x: 165, y: -330, // F
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'f',
    state: 'alive', color: 'brown'},
   {x: 150, y: -360, // E
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'e',
    state: 'alive', color: 'brown'},
   {x: 120, y: -390, // D
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'd',
    state: 'alive', color: 'brown'},
   {x: 90, y: -420, // C
-   width: 10, height: 10,
+   width: 10, height: 10, note: 'c',
    state: 'alive', color: 'brown'},
 ];
 
@@ -353,10 +353,6 @@ var level04 = [
    state: 'alive', color: 'brown'},
 ];
 
-var level05 = [
-
-];
-
 var levelLength = 0;
 function initLevel(level) {
   levelLength = level.length;
@@ -367,18 +363,19 @@ function initLevel(level) {
       width: level[i].width,
       height: level[i].height,
       state: level[i].state,
-      color: level[i].color
+      color: level[i].color,
+      note: level[i].note
     });
   }
 }
 
 var testlevel = [
-  {x: 150, y: 375,
-  width: 120, height: 25,
-  state: 'alive', color: 'white'},
+  {x: 10, y: -380,
+   note: 'c', color: 'brown',
+   state: 'alive'},
 ];
 
-var levels = [testlevel];//[level00, level01];//, level02, level03, level04];
+var levels = [level00];//, level01, level02, level03, level04];
 var levelIterator = 0;
 
 // =========== Game ============
@@ -409,7 +406,7 @@ function updateGame() {
   if(game.state == 'over' && keyboard[32]) {
     game.state = 'start';
     background.color = 'black';
-    player.y = 400;
+    player.y = 350;
     player.state = 'alive';
     player.counter = 100;
     overlay.counter = -1;
@@ -423,7 +420,7 @@ function updateGame() {
       levelIterator = 0;
 
     initLevel(levels[levelIterator++]);
-    player.y = 400;
+    player.y = 350;
     player.state = 'alive';
     overlay.counter = -1;
   }
@@ -614,24 +611,7 @@ function updatePlayer() {
   if(keyboard[221]) {
     player.x++;
   }
-
-// == BEGIN experiment with flappy bird-mario like mechanics ===
-  // key up 
-  if(keyboard[38]) {
-    player.y -= 15;
-  }
-
-  if(keyboard[40]) {
-    player.y += 15;
-  }
-
-  if(player.y < 390 && player.y > 0) {
-    player.y++;
-  } else {
-    player.y = 390;
-  }
-// === END ===
-
+ 
   if(player.x < 350 && player.x > 60) {
     player.x--;
   } else {
@@ -659,15 +639,14 @@ function updateEnemies() {
     if(!enemy) continue;
     if(enemy && enemy.state == 'alive') {
       //enemy.counter++;
-      //enemy.y++;
-      enemy.x--;
+      enemy.y++;
     }
   }
 
   //remove the ones that are off the screen
   semitones = semitones.filter(function(enemy) {
     //return enemy.x + enemy.width > 0;
-    return enemy.y < 600;//enemy.y < 400 ; //+ enemy.height > 0;
+    return enemy.y < 400 ; //+ enemy.height > 0;
   });
 }
 
