@@ -57,10 +57,19 @@ function drawEnemies(c) {
   for(var i in semitones) {
     enemy = semitones[i];
     if(enemy.state == 'alive') {
+      if(typeof(enemy.note) === 'undefined') {
+        c.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+      }
+
+      c.beginPath();
+      c.arc(enemy.x, enemy.y, enemy.width, 0, 2 * Math.PI, false);
       c.fillStyle = enemy.color;
-      c.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+      c.fill();
+      c.lineWidth = 1;
+      c.strokeStyle = 'black';
+      c.stroke();
       c.fillStyle = 'white';
-      c.fillText(enemy.note, enemy.x, enemy.y + enemy.height);
+      c.fillText(enemy.note, enemy.x - 4, enemy.y + 3);
     }
   }
 }
