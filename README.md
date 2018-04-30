@@ -11,6 +11,9 @@ TODO:
 - goal of the game is to remain human
 
 Suggestions:
+- Tylak:
+-- maybe at the start of the game you could show a graphic of the keyboard keys overlayed on piano keys
+
 - cidic:
 -- need big text telling user their speakers must be on
 
