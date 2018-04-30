@@ -11,6 +11,9 @@ TODO:
 - [ ] goal of the game is to remain human
 
 Suggestions:
+nohitzzz:
+- [ ] the sound shouldnt loop when you press a key - one shot samples - no new sound until you have released the key
+
 Tylak:
 - [ ] maybe at the start of the game you could show a graphic of the keyboard keys overlayed on piano keys
 
