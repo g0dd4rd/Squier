@@ -53,11 +53,14 @@ function drawBackground(c) {
 // =========== enemies ===============
 function drawEnemies(c) {
   var enemy;
+  c.font = '10pt Arial';
   for(var i in semitones) {
     enemy = semitones[i];
     if(enemy.state == 'alive') {
       c.fillStyle = enemy.color;
       c.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+      c.fillStyle = 'white';
+      c.fillText(enemy.note, enemy.x, enemy.y + enemy.height);
     }
   }
 }
