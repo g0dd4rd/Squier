@@ -18,7 +18,6 @@ var background = {
 
 var game = {
   state: 'start',
-  editMode: false,
 };
 
 var overlay = {
@@ -33,7 +32,7 @@ var player = {
   width: 10,
   height: 10,
   color: 'red',
-  counter: 0,
+  counter: 3,
 };
 
 var keyboard = {};
@@ -78,63 +77,7 @@ function updateGame() {
 
 //var language = (navigator.language || navigator.browserLanguage).split('-')[0];
 function updatePlayer() {
-  if(player.state == 'dead' || player.counter < 0) return;//<= 0) return;
-
-  // key z or y      
-  if(keyboard[90]) { //|| keyboard[81]) {
-    player.x = 12; //330;
-    //r = 255; g = 0; b = 0;
-    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
-    tones.play('c', 3);
-  }
-
-  // key x
-  if(keyboard[88]) {
-    player.x = 24; //330;
-    //r = 255; g = 0; b = 0;
-    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
-    tones.play('d', 3);
-  }
-
-  // key c
-  if(keyboard[67]) {
-    player.x = 36; //330;
-    //r = 255; g = 0; b = 0;
-    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
-    tones.play('e', 3);
-  }
-
-  // key v
-  if(keyboard[86]) {
-    player.x = 48; //330;
-    //r = 255; g = 0; b = 0;
-    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
-    tones.play('f', 3);
-  }
-
-  // key b
-  if(keyboard[66]) {
-    player.x = 60; //330;
-    //r = 255; g = 0; b = 0;
-    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
-    tones.play('g', 3);
-  }
-
-  // key n
-  if(keyboard[78]) {
-    player.x = 72; //330;
-    //r = 255; g = 0; b = 0;
-    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
-    tones.play('a', 3);
-  }
-
-  // key m
-  if(keyboard[77]) {
-    player.x = 84; //330;
-    //r = 255; g = 0; b = 0;
-    //background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
-    tones.play('b', 3);
-  }
+  if(player.state == 'dead' || player.counter < 0) return;
 
   // key a or q for French keyboard
   if(keyboard[65] || keyboard[81]) {
@@ -247,16 +190,6 @@ function updatePlayer() {
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // black
     tones.play('D', 5);
   }
-
-  // key [
-  if(keyboard[219]) {
-    player.x--;
-  }
-
-  // key ]
-  if(keyboard[221]) {
-    player.x++;
-  }
  
   if(player.x < 350 && player.x > 60) {
     player.x--;
@@ -307,32 +240,12 @@ function updateNotes() {
 function checkCollisions() {
   if(player.state == 'dead') return;
 
-// counter = -1; harmless
-// counter = 0; harmful
-// counter = 1; collectable 
   var note;
   for(var i = 0; i < semitones.length; i++) {
     note = semitones[i];
     if(collided(note, player)) {
-      player.state = 'hit';
-      if(note.color == 'white') {
-        player.y = enemy.y - player.height;
-      } else if(enemy.color == 'grey') {
-        player.counter -= 1;
-      } else if(enemy.color == 'brown') {
-        player.counter += 1;
-        enemy.x = -enemy.width;
-      }
-
-      if(player.counter <= 0) {
-        player.state = 'dead';
-        levelIterator = 0;
-        game.state = 'over';
-        overlay.title = 'DROPPED THE BEAT';
-        overlay.subtitle = 'press space to play again';
-      }
+      // play the correct note  
     }
-  }
 }
 
 function collided(a, b) {    
