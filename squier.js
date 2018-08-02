@@ -69,104 +69,80 @@ function updateGame() {
 
 //var language = (navigator.language || navigator.browserLanguage).split('-')[0];
 var xposition = [
-  {x: 90, note: 'c'},
-  {x: 105, note: 'c#'},
-  {x: 120, note: 'd'},
-  {x: 135, note: 'd#'},
-  {x: 150, note: 'e'},
-  {x: 165, note: 'f'},
-  {x: 180, note: 'f#'},
-  {x: 195, note: 'g'},
-  {x: 210, note: 'g#'},
-  {x: 225, note: 'a'},
-  {x: 240, note: 'a#'},
-  {x: 255, note: 'b'},];
+  {x: 90, note: 'c', r: 255, g: 0, b: 0}, // red
+  {x: 105, note: 'c#', r: 220, g: 20, b: 60}, // crimson
+  {x: 120, note: 'd', r: 255, g: 165, b: 0}, // orange
+  {x: 135, note: 'd#', r: 255, g: 215, b: 0}, // gold
+  {x: 150, note: 'e', r: 255, g: 255, b: 0}, // yellow
+  {x: 165, note: 'f', r: 0, g: 128, b: 0}, // green
+  {x: 180, note: 'f#', r: 46, g: 139, b: 87}, // seagreen
+  {x: 195, note: 'g', r: 0, g: 255, b: 255}, // cyan
+  {x: 210, note: 'g#', r: 0, g: 128, b: 128}, // teal
+  {x: 225, note: 'a', r: 0, g: 0, b: 255}, // blue
+  {x: 240, note: 'a#', r: 186, g: 85, b: 211}, // mediumorchid
+  {x: 255, note: 'b', r: 128, g: 0, b: 128},]; // purple
 
 function updatePlayer() {
   if(player.state == 'dead' || player.counter < 0) return;
 
   // key a or q for French keyboard
   if(keyboard[65] || keyboard[81]) {
-    player.x = 90; //330;
-    r = 255; g = 0; b = 0;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
+    player.x = 90;
   }
   
   // key w or z for French keyboard
   if(keyboard[87]) { // || keyboard[90]) {
-    player.x = 105; //305;
-    r = 220; g = 20; b = 60;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // crimson
+    player.x = 105;
   }
 
   // key s
   if(keyboard[83]) {
-    player.x = 120; //300;
-    r = 255; g = 165; b = 0;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // orange
+    player.x = 120;
   }
   
   // key e
   if(keyboard[69]) {
-    player.x = 135; //285;
-    r = 255; g = 215; b = 0;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // gold
+    player.x = 135;
   }
 
   // key d
   if(keyboard[68]) {
-    player.x = 150; //270;
-    r = 255; g = 255; b = 0;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // yellow
+    player.x = 150;
   }
 
   // key f
   if(keyboard[70]) {
-    player.x = 165; //240;
-    r = 0; g = 128; b = 0;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // green
+    player.x = 165;
   }
 
   // key t
   if(keyboard[84]) {
-    player.x = 180; //225;
-    r = 46; g = 139; b = 87;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // seagreen
+    player.x = 180;
   }
   
   // key g
   if(keyboard[71]) {
-    player.x = 195; //210;
-    r = 0; g = 255; b = 255;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // cyan
+    player.x = 195;
   }
   
   // key y
   if(keyboard[89]) {
-    player.x = 210; //195;
-    r = 0; g = 128; b = 128;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // teal
+    player.x = 210;
   }
 
   // key h
   if(keyboard[72]) {
-    player.x = 225; //180;
-    r = 0; g = 0; b = 255;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // blue
+    player.x = 225;
   }
   
   // key u
   if(keyboard[85]) {
-    player.x = 240; //165;
-    r = 186; g = 85; b = 211;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // mediumorchid
+    player.x = 240;
   }
 
   // key j
   if(keyboard[74]) {
-    player.x = 255; //150;
-    r = 128; g = 0; b = 128;
-    background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // purple
+    player.x = 255;
   }
 
   // key k
@@ -238,7 +214,10 @@ function checkCollisions() {
     note = semitones[i];
     if(collided(note, player)) {
       // play the correct note
-      tones.play(note.note); 
+      tones.play(note.note);
+
+      // change the background color
+      background.color = 'rgb("+ note.r +", "+ note.g +", "+ note.b +")';
     }
 }
 
