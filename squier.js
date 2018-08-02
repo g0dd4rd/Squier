@@ -37,20 +37,12 @@ var player = {
 
 var keyboard = {};
 var semitones = [];
-var xposition = [12, 24, 36, 48, 60, 72, 84, 96];
 
 // =========== Game ============
 function updateGame() {
   if(game.state == 'playing' && semitones.length == 0) {
     game.state = 'won';
-    overlay.subtitle = 'press space to play next level';
     overlay.counter = 0;
-    player.counter = 0;
-  }
-
-  if(game.state == 'editing') {
-    overlay.title = '';
-    overlay.subtitle = 'play your new level notes';
   }
 
   if(game.state == 'over' && keyboard[32]) {
@@ -76,6 +68,20 @@ function updateGame() {
 }
 
 //var language = (navigator.language || navigator.browserLanguage).split('-')[0];
+var xposition = [
+  {x: 90, note: 'c'},
+  {x: 105, note: 'c#'},
+  {x: 120, note: 'd'},
+  {x: 135, note: 'd#'},
+  {x: 150, note: 'e'},
+  {x: 165, note: 'f'},
+  {x: 180, note: 'f#'},
+  {x: 195, note: 'g'},
+  {x: 210, note: 'g#'},
+  {x: 225, note: 'a'},
+  {x: 240, note: 'a#'},
+  {x: 255, note: 'b'},];
+
 function updatePlayer() {
   if(player.state == 'dead' || player.counter < 0) return;
 
@@ -84,7 +90,6 @@ function updatePlayer() {
     player.x = 90; //330;
     r = 255; g = 0; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // red
-    tones.play('c');
   }
   
   // key w or z for French keyboard
@@ -92,7 +97,6 @@ function updatePlayer() {
     player.x = 105; //305;
     r = 220; g = 20; b = 60;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // crimson
-    tones.play('c#');
   }
 
   // key s
@@ -100,7 +104,6 @@ function updatePlayer() {
     player.x = 120; //300;
     r = 255; g = 165; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // orange
-    tones.play('D');
   }
   
   // key e
@@ -108,7 +111,6 @@ function updatePlayer() {
     player.x = 135; //285;
     r = 255; g = 215; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // gold
-    tones.play('D#');
   }
 
   // key d
@@ -116,7 +118,6 @@ function updatePlayer() {
     player.x = 150; //270;
     r = 255; g = 255; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // yellow
-    tones.play('E');
   }
 
   // key f
@@ -124,7 +125,6 @@ function updatePlayer() {
     player.x = 165; //240;
     r = 0; g = 128; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // green
-    tones.play('f');
   }
 
   // key t
@@ -132,7 +132,6 @@ function updatePlayer() {
     player.x = 180; //225;
     r = 46; g = 139; b = 87;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // seagreen
-    tones.play('f#');
   }
   
   // key g
@@ -140,7 +139,6 @@ function updatePlayer() {
     player.x = 195; //210;
     r = 0; g = 255; b = 255;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // cyan
-    tones.play('g');
   }
   
   // key y
@@ -148,7 +146,6 @@ function updatePlayer() {
     player.x = 210; //195;
     r = 0; g = 128; b = 128;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // teal
-    tones.play('g#');
   }
 
   // key h
@@ -156,7 +153,6 @@ function updatePlayer() {
     player.x = 225; //180;
     r = 0; g = 0; b = 255;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // blue
-    tones.play('A');
   }
   
   // key u
@@ -164,7 +160,6 @@ function updatePlayer() {
     player.x = 240; //165;
     r = 186; g = 85; b = 211;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // mediumorchid
-    tones.play('A#');
   }
 
   // key j
@@ -172,7 +167,6 @@ function updatePlayer() {
     player.x = 255; //150;
     r = 128; g = 0; b = 128;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // purple
-    tones.play('b');
   }
 
   // key k
@@ -180,7 +174,6 @@ function updatePlayer() {
     player.x = 270; //120;
     r = 255; g = 0; b = 255;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // magenta
-    tones.play('c', 5);
   }
 
   // key l
@@ -188,7 +181,6 @@ function updatePlayer() {
     player.x = 300; //90;
     r = 0; g = 0; b = 0;
     background.color = 'rgb("+ r +", "+ g +", "+ b +")'; // black
-    tones.play('D', 5);
   }
  
   if(player.x < 350 && player.x > 60) {
@@ -210,12 +202,14 @@ function updateNotes() {
     game.state = 'playing';
   }
   
+  var randomXandNote = Math.random() * xposition.length;
   semitones.push({
-      x: Math.random() * xposition.length,
+      x: xposition[randomXandNote].x,
       y: 10,
       width: 10,
       height: 10,
       color: 'white',
+      note: xposition[randomXandNote].note
   });
 
   //move each note down the screen
@@ -224,7 +218,6 @@ function updateNotes() {
     note = semitones[i];
     if(!note) continue;
     if(note && note.state == 'alive') {
-      //enemy.counter++;
       note.y++;
     }
   }
@@ -244,7 +237,8 @@ function checkCollisions() {
   for(var i = 0; i < semitones.length; i++) {
     note = semitones[i];
     if(collided(note, player)) {
-      // play the correct note  
+      // play the correct note
+      tones.play(note.note); 
     }
 }
 
