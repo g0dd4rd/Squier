@@ -44,17 +44,6 @@ var xposition = [12, 24, 36, 48, 60, 72, 84, 96];
 function updateGame() {
   if(game.state == 'playing' && semitones.length == 0) {
     game.state = 'won';
-    if(player.counter >= levelLength / 1.33) {
-      overlay.title = 'WELL PLAYED!';
-    } else if(player.counter < levelLength / 1.33 && player.counter >= levelLength / 2) {
-      overlay.title = 'HEY, TONES :P';
-    } else if(player.counter < levelLength / 2 && player.counter >= levelLength / 4) {
-      overlay.title = 'YOU DEAF???';
-    } else {
-      overlay.title = 'YOU RUINED IT.';
-      levelIterator -= 1;
-    }
-
     overlay.subtitle = 'press space to play next level';
     overlay.counter = 0;
     player.counter = 0;
@@ -76,12 +65,7 @@ function updateGame() {
   }
 
   if(game.state == 'won' && keyboard[32]) {
-    game.state = 'start';
-
-    if(levelIterator >= levels.length) 
-      levelIterator = 0;
-
-    initLevel(levels[levelIterator++]);
+    game.state = 'start'; 
     player.y = 350;
     player.state = 'alive';
     overlay.counter = -1;
@@ -287,7 +271,7 @@ function updateBackground() {
 }
 
 // ============== Enemy =============
-function updateEnemies() {
+function updateNotes() {
   //create new enemies the first time through
   if(game.state == 'start' && keyboard[32]) {
     game.state = 'playing';
@@ -301,21 +285,21 @@ function updateEnemies() {
       color: 'white',
   });
 
-  //for each enemy
-  var enemy;
+  //move each note down the screen
+  var note;
   for(var i = 0; i < semitones.length; i++) {
-    enemy = semitones[i];
-    if(!enemy) continue;
-    if(enemy && enemy.state == 'alive') {
+    note = semitones[i];
+    if(!note) continue;
+    if(note && note.state == 'alive') {
       //enemy.counter++;
-      enemy.y++;
+      note.y++;
     }
   }
 
   //remove the ones that are off the screen
-  semitones = semitones.filter(function(enemy) {
-    //return enemy.x + enemy.width > 0;
-    return enemy.y < 400 ; //+ enemy.height > 0;
+  semitones = semitones.filter(function(note) {
+    //return note.x + note.width > 0;
+    return note.y < 400 ; //+ note.height > 0;
   });
 }
 
@@ -326,12 +310,12 @@ function checkCollisions() {
 // counter = -1; harmless
 // counter = 0; harmful
 // counter = 1; collectable 
-  var enemy;
+  var note;
   for(var i = 0; i < semitones.length; i++) {
-    enemy = semitones[i];
-    if(collided(enemy, player)) {
+    note = semitones[i];
+    if(collided(note, player)) {
       player.state = 'hit';
-      if(enemy.color == 'white') {
+      if(note.color == 'white') {
         player.y = enemy.y - player.height;
       } else if(enemy.color == 'grey') {
         player.counter -= 1;
@@ -377,33 +361,12 @@ function collided(a, b) {
   return false;
 }
 
-// ========= Edit mode =======================
-var editModeClicks = 1;
-function toggleEditMode() {
-  if(editModeClicks % 2 == 0) {
-    game.state = 'editing';
-    game.editMode = true;
-  } else {
-    game.state = 'start'
-    game.editMode = false;
-  }
-}
- 
 // ============ Events ========================
-var timestamp = Date.now();
-var deltaTimestamp = 0;
 function checkEvents() {
   attachEvent(document, 'keydown', function(e) {
-    //if(game.editMode == true) {
-      //deltaTimestamp = Date.now() - timestamp;
-      console.log('keycode: '+ e.keyCode +', character: '+ e.key); //String.fromCharCode(e.keyCode));
-      //console.log('tone.x: '+ Math.floor(deltaTimestamp / (1000 / 30)));
-      //console.log('tone.y: '+ player.y);
-      //console.log('timestamp: '+ timestamp +', delta: '+ deltaTimestamp);
-    //}
-
     keyboard[e.keyCode] = true;
   });
+
   attachEvent(document, 'keyup', function(e) {
     keyboard[e.keyCode] = false;
   });
