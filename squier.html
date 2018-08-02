@@ -17,13 +17,13 @@ function mainLoop() {
   //var c = can.getContext('2d');
   updateGame();
   updateBackground();
-  updateEnemies();
+  updateNotes();
   updatePlayer();
 
   checkCollisions();
 
   drawBackground(c);
-  drawEnemies(c);
+  drawNotes(c);
   drawPlayer(c);
   drawOverlay(c);
 }
@@ -50,26 +50,12 @@ function drawBackground(c) {
 }
 
 // =========== enemies ===============
-function drawEnemies(c) {
-  var enemy;
+function drawNotes(c) {
+  var note;
   c.font = '10pt Arial';
   for(var i in semitones) {
-    enemy = semitones[i];
-    if(enemy.state == 'alive') {
-      if(typeof(enemy.note) === 'undefined') {
-        c.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
-      }
-
-      c.beginPath();
-      c.arc(enemy.x, enemy.y, enemy.width, 0, 2 * Math.PI, false);
-      c.fillStyle = enemy.color;
-      c.fill();
-      c.lineWidth = 1;
-      c.strokeStyle = 'black';
-      c.stroke();
-      c.fillStyle = 'white';
-      c.fillText(enemy.note, enemy.x - 4, enemy.y + 3);
-    }
+    note = semitones[i];
+    c.fillRect(note.x, note.y, note.width, note.height);
   }
 }
 
@@ -80,10 +66,6 @@ function drawOverlay(c) {
   c.fillStyle = 'white';
   c.font = '14pt Arial';
   c.fillText(player.counter, 10, 20);
-
-  if(game.state == 'editing') {
-    c.fillText(overlay.subtitle, 190, 250);
-  }
 
   if(game.state == 'start') {
     c.fillText('press space to play', 190, 250);
