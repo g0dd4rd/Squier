@@ -32,36 +32,13 @@ var player = {
   y: 350,
   width: 10,
   height: 10,
+  color: 'red',
   counter: 0,
 };
 
 var keyboard = {};
 var semitones = [];
-
-var levelLength = 0;
-function initLevel(level) {
-  levelLength = level.length;
-  for(var i = 0; i < level.length; i++) {
-    semitones.push({
-      x: level[i].x,
-      y: level[i].y,
-      width: level[i].width,
-      height: level[i].height,
-      state: level[i].state,
-      color: level[i].color,
-      note: level[i].note
-    });
-  }
-}
-
-var testlevel = [
-  {x: 10, y: -380,
-   note: 'c', color: 'brown',
-   state: 'alive'},
-];
-
-var levels = [level00];//, level01, level02, level03, level04];
-var levelIterator = 0;
+var xposition = [12, 24, 36, 48, 60, 72, 84, 96];
 
 // =========== Game ============
 function updateGame() {
@@ -313,10 +290,17 @@ function updateBackground() {
 function updateEnemies() {
   //create new enemies the first time through
   if(game.state == 'start' && keyboard[32]) {
-    enemyBullets = [];
     game.state = 'playing';
   }
-    
+  
+  semitones.push({
+      x: Math.random() * xposition.length,
+      y: 10,
+      width: 10,
+      height: 10,
+      color: 'white',
+  });
+
   //for each enemy
   var enemy;
   for(var i = 0; i < semitones.length; i++) {
