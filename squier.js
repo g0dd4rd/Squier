@@ -19,11 +19,12 @@ var background = {
 var game = {
   state: 'start',
 };
+console.log('game state should be start: '+ game.state);
 
 var overlay = {
-  counter: -1,
-  title: 'Squier',
-  subtitle: 'bar'
+  counter: 1,
+  title: 'GET READY',
+  subtitle: 'press spacebar to play'
 };
 
 var player = {
@@ -168,28 +169,40 @@ function updatePlayer() {
 
 function updateBackground() {
   //console.log('background.color: '+ background.color);
-  background.color = "rgb("+ r-- +", "+ g-- +", "+ b-- +")";
+  background.color = 'black'; //"rgb("+ r-- +", "+ g-- +", "+ b-- +")";
 }
+
+// ============== Beats =============
+function kick() {
+  tones.play('c', 2);
+}
+function snare() {
+  tones.play('c', 4);
+}
+setInterval(kick, 500);
+setInterval(snare, 1000);
 
 // ============== Notes =============
 function createNotes() {
   var randomXandNote = Math.floor(Math.random() * xposition.length);
   semitones.push({
     x: xposition[randomXandNote].x,
-    y: 0,
+    y: -10,
     width: 10,
     height: 10,
     color: 'white',
     note: xposition[randomXandNote].note
   });
-  console.log('random x and note: '+ randomXandNote);
 }
+
 setInterval(createNotes, 1000);
 
 function updateNotes() {
   //create new enemies the first time through
   if(game.state == 'start' && keyboard[32]) {
+    semitones = [];
     game.state = 'playing';
+    console.log('should be playing: '+ game.state);
   }
 
   if(game.state == 'playing') {
@@ -205,8 +218,7 @@ function updateNotes() {
 
     //remove the ones that are off the screen
     semitones = semitones.filter(function(note) {
-      //return note.x + note.width > 0;
-      return note.y < 400 ; //+ note.height > 0;
+      return note.y < 400;
     });
   }
 }
@@ -223,7 +235,7 @@ function checkCollisions() {
       tones.play(note.note);
 
       // change the background color
-      background.color = "rgb("+ note.r +", "+ note.g +", "+ note.b +")";
+      //background.color = "rgb("+ note.r +", "+ note.g +", "+ note.b +")";
     }
   }
 }
