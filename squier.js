@@ -19,7 +19,7 @@ var background = {
 var game = {
   state: 'start',
 };
-console.log('game state should be start: '+ game.state);
+//console.log('game state should be start: '+ game.state);
 
 var overlay = {
   counter: 1,
@@ -41,7 +41,7 @@ var semitones = [];
 
 // =========== Game ============
 function updateGame() {
-  if(game.state == 'playing' && semitones.length == 0) {
+  if(game.state == 'playing' && player.counter > 100) {
     game.state = 'won';
     overlay.counter = 0;
   }
@@ -53,7 +53,6 @@ function updateGame() {
     player.state = 'alive';
     player.counter = 100;
     overlay.counter = -1;
-    //overlay.title = 'READY YOUR SPEAKERS';
   }
 
   if(game.state == 'won' && keyboard[32]) {
@@ -194,7 +193,6 @@ function createNotes() {
     note: xposition[randomXandNote].note
   });
 }
-
 setInterval(createNotes, 1000);
 
 function updateNotes() {
@@ -202,7 +200,7 @@ function updateNotes() {
   if(game.state == 'start' && keyboard[32]) {
     semitones = [];
     game.state = 'playing';
-    console.log('should be playing: '+ game.state);
+    //console.log('should be playing: '+ game.state);
   }
 
   if(game.state == 'playing') {
@@ -211,7 +209,7 @@ function updateNotes() {
     for(var i = 0; i < semitones.length; i++) {
       note = semitones[i];
       if(!note) continue;
-      if(note) { //&& note.state == 'alive') {
+      if(note) {
         note.y++;
       }
     }
