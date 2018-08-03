@@ -171,7 +171,21 @@ function updateBackground() {
   background.color = "rgb("+ r-- +", "+ g-- +", "+ b-- +")";
 }
 
-// ============== Enemy =============
+// ============== Notes =============
+function createNotes() {
+  var randomXandNote = Math.floor(Math.random() * xposition.length);
+  semitones.push({
+    x: xposition[randomXandNote].x,
+    y: 0,
+    width: 10,
+    height: 10,
+    color: 'white',
+    note: xposition[randomXandNote].note
+  });
+  console.log('random x and note: '+ randomXandNote);
+}
+setInterval(createNotes, 1000);
+
 function updateNotes() {
   //create new enemies the first time through
   if(game.state == 'start' && keyboard[32]) {
@@ -179,16 +193,6 @@ function updateNotes() {
   }
 
   if(game.state == 'playing') {
-    var randomXandNote = Math.floor(Math.random() * xposition.length);
-    semitones.push({
-      x: xposition[randomXandNote].x,
-      y: 10,
-      width: 10,
-      height: 10,
-      color: 'white',
-      note: xposition[randomXandNote].note
-    });
-
     //move each note down the screen
     var note;
     for(var i = 0; i < semitones.length; i++) {
@@ -219,7 +223,7 @@ function checkCollisions() {
       tones.play(note.note);
 
       // change the background color
-      background.color = 'rgb("+ note.r +", "+ note.g +", "+ note.b +")';
+      background.color = "rgb("+ note.r +", "+ note.g +", "+ note.b +")";
     }
   }
 }
