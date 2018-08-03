@@ -177,32 +177,34 @@ function updateNotes() {
   if(game.state == 'start' && keyboard[32]) {
     game.state = 'playing';
   }
-  
-  var randomXandNote = Math.random() * xposition.length;
-  semitones.push({
+
+  if(game.state == 'playing') {
+    var randomXandNote = Math.floor(Math.random() * xposition.length);
+    semitones.push({
       x: xposition[randomXandNote].x,
       y: 10,
       width: 10,
       height: 10,
       color: 'white',
       note: xposition[randomXandNote].note
-  });
+    });
 
-  //move each note down the screen
-  var note;
-  for(var i = 0; i < semitones.length; i++) {
-    note = semitones[i];
-    if(!note) continue;
-    if(note && note.state == 'alive') {
-      note.y++;
+    //move each note down the screen
+    var note;
+    for(var i = 0; i < semitones.length; i++) {
+      note = semitones[i];
+      if(!note) continue;
+      if(note) { //&& note.state == 'alive') {
+        note.y++;
+      }
     }
-  }
 
-  //remove the ones that are off the screen
-  semitones = semitones.filter(function(note) {
-    //return note.x + note.width > 0;
-    return note.y < 400 ; //+ note.height > 0;
-  });
+    //remove the ones that are off the screen
+    semitones = semitones.filter(function(note) {
+      //return note.x + note.width > 0;
+      return note.y < 400 ; //+ note.height > 0;
+    });
+  }
 }
 
 // =========== check for collisions ===
@@ -219,6 +221,7 @@ function checkCollisions() {
       // change the background color
       background.color = 'rgb("+ note.r +", "+ note.g +", "+ note.b +")';
     }
+  }
 }
 
 function collided(a, b) {    
