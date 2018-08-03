@@ -55,6 +55,7 @@ function drawNotes(c) {
   c.font = '10pt Arial';
   for(var i in semitones) {
     note = semitones[i];
+    c.fillStyle = 'blue';
     c.fillRect(note.x, note.y, note.width, note.height);
   }
 }
