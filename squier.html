@@ -14,7 +14,6 @@ var can = document.getElementById('canvas');
 var c = can.getContext('2d');
 
 function mainLoop() {
-  //var c = can.getContext('2d');
   updateGame();
   updateBackground();
   updateNotes();
@@ -55,8 +54,8 @@ function drawNotes(c) {
   c.font = '10pt Arial';
   for(var i in semitones) {
     note = semitones[i];
-    c.fillStyle = 'blue';
-    c.fillRect(note.x, note.y, note.width, note.height);
+    c.fillStyle = note.color;
+    c.fillText(note.note, note.x, note.y);
   }
 }
 
@@ -69,19 +68,17 @@ function drawOverlay(c) {
   c.fillText(player.counter, 10, 20);
 
   if(game.state == 'start') {
-    c.fillText('press space to play', 190, 250);
+    c.fillText(overlay.subtitle, 190, 250);
     c.font = "Bold 40pt Arial";
-    c.fillText('READY YOUR EARS', 30, 200);
+    c.fillText(overlay.title, 30, 200);
   }
 
   if(game.state == 'over') {
-    c.fillText(overlay.subtitle, 190, 250);
     c.font = "Bold 40pt Arial";
     c.fillText(overlay.title, 30, 200);
   }
   
   if(game.state == 'won') {
-    c.fillText(overlay.subtitle, 190, 250);
     c.font = 'Bold 40pt Arial';
     c.fillText(overlay.title, 50, 200);
   }
