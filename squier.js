@@ -41,24 +41,12 @@ var semitones = [];
 
 // =========== Game ============
 function updateGame() {
-  if(game.state == 'playing' && player.counter > 100) {
-    game.state = 'won';
-    overlay.counter = 0;
-  }
-
   if(game.state == 'over' && keyboard[32]) {
     game.state = 'start';
     background.color = 'black';
     player.y = 350;
     player.state = 'alive';
-    player.counter = 100;
-    overlay.counter = -1;
-  }
-
-  if(game.state == 'won' && keyboard[32]) {
-    game.state = 'start'; 
-    player.y = 350;
-    player.state = 'alive';
+    player.counter = 3;
     overlay.counter = -1;
   }
     
