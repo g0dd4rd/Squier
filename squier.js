@@ -219,7 +219,7 @@ function checkCollisions() {
     if(collided(note, player)) {
       // play the correct note
       tones.play(note.note);
-
+      note.y = 400;
       // change the background color
       //background.color = "rgb("+ note.r +", "+ note.g +", "+ note.b +")";
     }
