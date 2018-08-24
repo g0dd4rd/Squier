@@ -33,7 +33,7 @@ var player = {
   width: 10,
   height: 10,
   color: 'red',
-  counter: 3,
+  counter: 0,
 };
 
 var keyboard = {};
@@ -46,7 +46,7 @@ function updateGame() {
     background.color = 'black';
     player.y = 350;
     player.state = 'alive';
-    player.counter = 3;
+    player.counter = 0;
     overlay.counter = -1;
   }
     
@@ -220,6 +220,7 @@ function checkCollisions() {
       // play the correct note
       tones.play(note.note);
       note.y = 400;
+      player.counter++;
       // change the background color
       //background.color = "rgb("+ note.r +", "+ note.g +", "+ note.b +")";
     }
